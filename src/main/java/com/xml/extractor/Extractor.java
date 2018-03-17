@@ -17,15 +17,8 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 public class Extractor {
 
     public static final Object extract(final String urlFile) throws FileNotFoundException, IOException, IllegalArgumentException, IllegalAccessException {
-        
         final File file = new File(urlFile);
-        final XmlMapper xmlMapper = new XmlMapper();
-        final String xml = inputStreamToString(new FileInputStream(file));
-        final Object value = xmlMapper.readValue(xml, Object.class);
-        
-        parseObject(value);
-
-        return value;
+        return extract(file);
     }
 
     public static final Object extract(final File file) throws FileNotFoundException, IOException, IllegalArgumentException, IllegalAccessException {
